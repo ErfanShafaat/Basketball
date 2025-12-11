@@ -1,0 +1,86 @@
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #f57c00, #ffb74d);
+  color: #fff;
+  padding: 50px 20px 20px 20px;
+  direction: rtl;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 600px;
+}
+
+.footer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer a:hover {
+  color: #333;
+  transform: scale(1.05);
+}
+
+.footer .top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer .links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .links li {
+  margin-bottom: 10px;
+}
+
+.footer .social .icons {
+  display: flex;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+
+.footer .social .icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.footer .social .icons a:hover {
+  background: #fff;
+  color: #f57c00;
+  transform: scale(1.2);
+}
+
+.footer .contact p {
+  margin: 5px 0;
+}
+
+.footer .bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.4);
+  padding-top: 15px;
+  font-size: 0.9rem;
+}
+
+/* واکنش‌گرا */
+@media screen and (max-width: 768px) {
+  .footer .top {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

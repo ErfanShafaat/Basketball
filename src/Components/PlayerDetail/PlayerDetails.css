@@ -1,0 +1,120 @@
+.player-details-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.player-details-card {
+  width: 90%;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.details-img {
+  width: 45%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.details-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.details-name {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.details-team, .details-number {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #555;
+}
+
+.back-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 20px;
+  background: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background 0.25s;
+  width: fit-content;
+}
+
+.back-btn:hover {
+  background: #0056c7;
+}
+.details-actions {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+/* دکمه ویرایش */
+.edit-btn {
+  background: #4dabf7;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #339af0;
+  transform: translateY(-3px);
+}
+
+/* دکمه حذف */
+.delete-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #fa5252;
+  transform: translateY(-3px);
+}
+
+.details-actions i {
+  font-size: 18px;
+}
+.fade-out {
+  animation: fadeOut 0.5s forwards ease-out;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

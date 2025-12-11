@@ -1,0 +1,88 @@
+.players-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+  background: #1e1e2f; /* پس‌زمینه تیره */
+}
+
+.player-card {
+  display: flex; /* کارت افقی */
+  flex-direction: row-reverse; /* عکس سمت راست */
+  width: 500px; /* پهنای کارت افقی */
+  background: linear-gradient(145deg, #2c2c3e, #1f1f2e); /* گرادینت تیره و شیک */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.25);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.player-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 6px 12px rgba(0,0,0,0.35);
+}
+
+.player-img {
+  width: 180px; /* عرض تصویر */
+  height: 180px; /* ارتفاع تصویر */
+  object-fit: cover;
+  border-radius: 0 20px 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.player-card:hover .player-img {
+  transform: scale(1.05);
+}
+
+.player-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.player-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ff9f1c; /* نارنجی روشن */
+  margin-bottom: 6px;
+  word-wrap: break-word;
+}
+
+.player-team {
+  color: #fcca46; /* زرد بسکتبالی */
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.player-number {
+  display: inline-block;
+  background: #ff6b6b; /* قرمز پررنگ */
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.player-btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: #f97316; /* نارنجی پررنگ */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.player-btn:hover {
+  background: #ffb347; /* نارنجی روشن‌تر */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}

@@ -1,0 +1,49 @@
+/* NotFound.css */
+
+.nf-container {
+  text-align: center;
+  padding: 60px 20px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nf-title {
+  font-size: 120px;
+  font-weight: bold;
+  color: #ff6b6b;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.nf-text {
+  font-size: 22px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  color: #444;
+}
+
+.nf-button {
+  display: inline-block;
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nf-button:hover {
+  background-color: #ff4a4a;
+  transform: translateY(-3px);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}

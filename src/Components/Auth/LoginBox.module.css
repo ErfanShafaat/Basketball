@@ -1,0 +1,128 @@
+/* Container اصلی */
+.loginBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  gap: 15px;
+}
+
+/* دکمه‌ها */
+.loginBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* لینک‌های ورود و ثبت‌نام */
+.loginLink,
+.signupLink {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* دکمه ورود */
+.loginLink {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+  border: none;
+}
+
+.loginLink:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #f57c00, #ffb74d);
+}
+
+/* دکمه ثبت‌نام */
+.signupLink {
+   background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: #ffffff;
+  border: none;
+}
+
+.signupLink:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  color: #fff;
+  background: linear-gradient(135deg, #f57c00, #ff9800);
+}
+
+/* دراپ‌داون */
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  background: linear-gradient(135deg, #f57c00, #ff9800);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.dropdownToggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+/* منوی دراپ‌داون */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 1000;
+  overflow: hidden;
+  animation: fadeSlide 0.25s ease-in-out;
+}
+
+/* آیتم‌های دراپ‌داون */
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: white;
+  border: none;
+  text-align: right;
+  transition: all 0.25s ease;
+}
+
+.dropdownItem:hover {
+  background: #f57c00;
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* انیمیشن fade + slide */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,178 @@
+/* Navbar عمومی */
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #f57c00; 
+  padding: 0.6rem 1.5rem;
+  direction: rtl; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-wrap: wrap; /* برای ریسپانسیو */
+}
+
+.navbarRight {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: bold;
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.navItems {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.navItem {
+  margin-left: 1rem;
+  position: relative;
+}
+
+.navItem a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 8px;
+  transition: color 0.2s;
+}
+
+.navItem a:hover {
+  color: #f3f3f3;
+}
+
+.navItem a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #cccbc8;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.navItem a:hover::after {
+  width: 100%;
+}
+
+/* فرم جستجو */
+.searchForm {
+  position: relative;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.searchForm input {
+  width: 250px;          
+  height: 38px;          
+  padding: 8px 35px 8px 12px; 
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.searchForm input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.searchForm input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Search results container */
+.search-results-container {
+  position: absolute;
+  top: 60px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 500px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 1000;
+}
+
+/* ریسپانسیو */
+@media (max-width: 1024px) {
+  .searchForm input {
+    width: 200px;
+  }
+  .navItem {
+    margin-left: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbarRight {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .navItems {
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+  }
+
+  .searchForm {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .searchForm input {
+    width: 100%;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navItem a {
+    font-size: 0.85rem;
+    padding: 5px 6px;
+  }
+
+  .searchForm input {
+    height: 36px;
+    font-size: 0.95rem;
+    padding: 6px 30px 6px 10px;
+  }
+
+  .navbar {
+    padding: 0.5rem;
+  }
+}

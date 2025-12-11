@@ -1,0 +1,1335 @@
+{
+  "players": [
+    {
+      "id": "1",
+      "name": "Stephen Curryy",
+      "team": "Golden State Warriors",
+      "number": 30,
+      "image": "https://i.pinimg.com/1200x/00/85/9f/00859f277fe63138017bebdc1574f800.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Kevin Durant",
+      "team": "Phoenix Suns",
+      "number": 36000,
+      "image": "https://i.pinimg.com/1200x/c3/06/b2/c306b227f220a554a27a285732b98ec2.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Giannis Antetokounmpo",
+      "team": "Milwaukee Bucks",
+      "number": 34,
+      "image": "https://i.pinimg.com/1200x/bd/44/81/bd4481b646d02d714fd347b410fbe806.jpg"
+    },
+    {
+      "id": "5",
+      "name": "James Harden",
+      "team": "Philadelphia 76ers",
+      "number": 1,
+      "image": "https://i.pinimg.com/736x/b7/b0/37/b7b0373156f9a9eba105241da8cfbebd.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Kawhi Leonard",
+      "team": "Los Angeles Clippers",
+      "number": 2,
+      "image": "https://i.pinimg.com/1200x/80/91/00/80910024dc40491f64d63575a3cbb617.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Luka Doncic",
+      "team": "Dallas Mavericks",
+      "number": 77,
+      "image": "https://i.pinimg.com/736x/d9/fc/3e/d9fc3ed951501dbcf56adf7ee7dc31ab.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Joel Embiid",
+      "team": "Philadelphia 76ers",
+      "number": 21,
+      "image": "https://i.pinimg.com/736x/6e/0f/1d/6e0f1df9f16a9baab7dd61664b0834ee.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Anthony Davis",
+      "team": "Los Angeles Lakers",
+      "number": 3,
+      "image": "https://i.pinimg.com/736x/44/9e/17/449e179cd091e60332048110d5c86f1e.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Damian Lillard",
+      "team": "Portland Trail Blazers",
+      "number": 0,
+      "image": "https://i.pinimg.com/1200x/6e/56/e4/6e56e43086286fb612a68daac19e7154.jpg"
+    },
+    {
+      "id": "11",
+      "name": "Chris Paul",
+      "team": "Golden State Warriors",
+      "number": 3,
+      "image": "https://i.pinimg.com/1200x/d7/f2/8a/d7f28a22034d18baea2f06bee94bee48.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Devin Booker",
+      "team": "Phoenix Suns",
+      "number": 1,
+      "image": "https://i.pinimg.com/736x/f0/81/d5/f081d5388338255e4902f30390bb214e.jpg"
+    },
+    {
+      "id": "15",
+      "name": "Bradley Beal",
+      "team": "Washington Wizards",
+      "number": 3,
+      "image": "https://i.pinimg.com/1200x/bd/e5/89/bde589b2cfee8c07a8aaadde7f4a4033.jpg"
+    },
+    {
+      "id": "16",
+      "name": "Stephen Curry",
+      "team": "Golden State Warriors",
+      "number": 30,
+      "image": "https://i.pinimg.com/1200x/00/85/9f/00859f277fe63138017bebdc1574f800.jpg"
+    },
+    {
+      "id": "0549ced0-4a29-4ee8-8970-3d428546336b",
+      "name": "Cristiano Ronaldo",
+      "team": "Real Madrid",
+      "number": 7,
+      "image": "https://img.a.transfermarkt.technology/portrait/big/8198-1748102259.jpg?lm=1"
+    },
+    {
+      "id": "296948a2-22d1-4d67-b3e2-87cd1de0f54d",
+      "name": "Lionel Messi",
+      "team": "Barcelona",
+      "number": 10,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq1VDfTAktdGATyTDBskoVU6hu1xRCbU6HiRIr_0o4SJQWpOBWIvYu3vHSmo0OE89ewoozR33BAYIP1pVh30fghJVangfHmUX2HAWCNxZf&s=10"
+    },
+    {
+      "id": "858051d1-75f0-48b0-a1e0-746d423cdca2",
+      "name": "Neymar",
+      "team": "PSG",
+      "number": 10,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD0pi7UlJdli9HviQFIJxFCTtvHu_Hp9MCe2c3UBFPBxc_FRkSb-Pe5hc6Z02_4qkYqcyb3anbAM0ydOR5EMrp59IPqzStxTZtg4wtKYZ-zQ&s=10"
+    }
+  ],
+  "teams": [
+    {
+      "id": "T1",
+      "name": "Golden State Warriors",
+      "country": "USA",
+      "city": "San Francisco",
+      "coach": "Steve Kerr",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/01/Golden_State_Warriors_logo.svg",
+      "players": [
+        {
+          "name": "Stephen Curry",
+          "number": 30
+        },
+        {
+          "name": "Klay Thompson",
+          "number": 11
+        },
+        {
+          "name": "Draymond Green",
+          "number": 23
+        },
+        {
+          "name": "Andrew Wiggins",
+          "number": 22
+        },
+        {
+          "name": "Chris Paul",
+          "number": 3
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "Los Angeles Lakers",
+      "country": "USA",
+      "city": "Los Angeles",
+      "coach": "Darvin Ham",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg",
+      "players": [
+        {
+          "name": "LeBron James",
+          "number": 23
+        },
+        {
+          "name": "Anthony Davis",
+          "number": 3
+        },
+        {
+          "name": "D'Angelo Russell",
+          "number": 1
+        },
+        {
+          "name": "Austin Reaves",
+          "number": 15
+        },
+        {
+          "name": "Jarred Vanderbilt",
+          "number": 2
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "name": "Phoenix Suns",
+      "country": "USA",
+      "city": "Phoenix",
+      "coach": "Frank Vogel",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/d/dc/Phoenix_Suns_logo.svg",
+      "players": [
+        {
+          "name": "Kevin Durant",
+          "number": 35
+        },
+        {
+          "name": "Devin Booker",
+          "number": 1
+        },
+        {
+          "name": "Bradley Beal",
+          "number": 3
+        },
+        {
+          "name": "Jusuf Nurkic",
+          "number": 20
+        },
+        {
+          "name": "Grayson Allen",
+          "number": 8
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "Milwaukee Bucks",
+      "country": "USA",
+      "city": "Milwaukee",
+      "coach": "Doc Rivers",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/4/4a/Milwaukee_Bucks_logo.svg",
+      "players": [
+        {
+          "name": "Giannis Antetokounmpo",
+          "number": 34
+        },
+        {
+          "name": "Damian Lillard",
+          "number": 0
+        },
+        {
+          "name": "Khris Middleton",
+          "number": 22
+        },
+        {
+          "name": "Brook Lopez",
+          "number": 11
+        },
+        {
+          "name": "Bobby Portis",
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "Philadelphia 76ers",
+      "country": "USA",
+      "city": "Philadelphia",
+      "coach": "Nick Nurse",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/0e/Philadelphia_76ers_logo.svg",
+      "players": [
+        {
+          "name": "Joel Embiid",
+          "number": 21
+        },
+        {
+          "name": "Tyrese Maxey",
+          "number": 0
+        },
+        {
+          "name": "Tobias Harris",
+          "number": 12
+        },
+        {
+          "name": "Kelly Oubre Jr.",
+          "number": 9
+        },
+        {
+          "name": "Paul Reed",
+          "number": 44
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "name": "Boston Celtics",
+      "country": "USA",
+      "city": "Boston",
+      "coach": "Joe Mazzulla",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/8/8f/Boston_Celtics.svg",
+      "players": [
+        {
+          "name": "Jayson Tatum",
+          "number": 0
+        },
+        {
+          "name": "Jaylen Brown",
+          "number": 7
+        },
+        {
+          "name": "Kristaps Porzingis",
+          "number": 8
+        },
+        {
+          "name": "Jrue Holiday",
+          "number": 4
+        },
+        {
+          "name": "Al Horford",
+          "number": 42
+        }
+      ]
+    },
+    {
+      "id": "T7",
+      "name": "Dallas Mavericks",
+      "country": "USA",
+      "city": "Dallas",
+      "coach": "Jason Kidd",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/9/97/Dallas_Mavericks_logo.svg",
+      "players": [
+        {
+          "name": "Luka Doncic",
+          "number": 77
+        },
+        {
+          "name": "Kyrie Irving",
+          "number": 11
+        },
+        {
+          "name": "Tim Hardaway Jr.",
+          "number": 10
+        },
+        {
+          "name": "Derrick Jones Jr.",
+          "number": 55
+        },
+        {
+          "name": "Maxi Kleber",
+          "number": 42
+        }
+      ]
+    },
+    {
+      "id": "T8",
+      "name": "Los Angeles Clippers",
+      "country": "USA",
+      "city": "Los Angeles",
+      "coach": "Tyronn Lue",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/b/bb/Los_Angeles_Clippers_%282015%29.svg",
+      "players": [
+        {
+          "name": "Kawhi Leonard",
+          "number": 2
+        },
+        {
+          "name": "Paul George",
+          "number": 13
+        },
+        {
+          "name": "Russell Westbrook",
+          "number": 0
+        },
+        {
+          "name": "Ivica Zubac",
+          "number": 40
+        },
+        {
+          "name": "Norman Powell",
+          "number": 24
+        }
+      ]
+    },
+    {
+      "id": "T19",
+      "name": "Utah Jazz",
+      "country": "USA",
+      "city": "Salt Lake City",
+      "coach": "Will Hardy",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/52/Utah_Jazz_logo_2022.svg",
+      "players": [
+        {
+          "name": "Lauri Markkanen",
+          "number": 23
+        },
+        {
+          "name": "Jordan Clarkson",
+          "number": 0
+        },
+        {
+          "name": "Walker Kessler",
+          "number": 24
+        },
+        {
+          "name": "Collin Sexton",
+          "number": 2
+        },
+        {
+          "name": "John Collins",
+          "number": 20
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "Denver Nuggets",
+      "country": "USA",
+      "city": "Denver",
+      "coach": "Michael Malone",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/76/Denver_Nuggets.svg",
+      "players": [
+        {
+          "name": "Nikola Jokic",
+          "number": 15
+        },
+        {
+          "name": "Jamal Murray",
+          "number": 27
+        },
+        {
+          "name": "Aaron Gordon",
+          "number": 50
+        },
+        {
+          "name": "Michael Porter Jr.",
+          "number": 1
+        },
+        {
+          "name": "Kentavious Caldwell-Pope",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "name": "Chicago Bulls",
+      "country": "USA",
+      "city": "Chicago",
+      "coach": "Billy Donovan",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/6/67/Chicago_Bulls_logo.svg",
+      "players": [
+        {
+          "name": "Zach LaVine",
+          "number": 8
+        },
+        {
+          "name": "DeMar DeRozan",
+          "number": 11
+        },
+        {
+          "name": "Nikola Vucevic",
+          "number": 9
+        },
+        {
+          "name": "Alex Caruso",
+          "number": 6
+        },
+        {
+          "name": "Lonzo Ball",
+          "number": 2
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "name": "New York Knicks",
+      "country": "USA",
+      "city": "New York City",
+      "coach": "Tom Thibodeau",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/25/New_York_Knicks_logo.svg",
+      "players": [
+        {
+          "name": "Julius Randle",
+          "number": 30
+        },
+        {
+          "name": "Jalen Brunson",
+          "number": 11
+        },
+        {
+          "name": "RJ Barrett",
+          "number": 9
+        },
+        {
+          "name": "Mitchell Robinson",
+          "number": 23
+        },
+        {
+          "name": "Josh Hart",
+          "number": 3
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "name": "Brooklyn Nets",
+      "country": "USA",
+      "city": "Brooklyn",
+      "coach": "Jacque Vaughn",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/4/44/Brooklyn_Nets_newlogo.svg",
+      "players": [
+        {
+          "name": "Mikal Bridges",
+          "number": 1
+        },
+        {
+          "name": "Cam Johnson",
+          "number": 2
+        },
+        {
+          "name": "Nic Claxton",
+          "number": 33
+        },
+        {
+          "name": "Spencer Dinwiddie",
+          "number": 26
+        },
+        {
+          "name": "Ben Simmons",
+          "number": 10
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "name": "Toronto Raptors",
+      "country": "Canada",
+      "city": "Toronto",
+      "coach": "Darko Rajaković",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/3/36/Toronto_Raptors_logo.svg",
+      "players": [
+        {
+          "name": "Scottie Barnes",
+          "number": 4
+        },
+        {
+          "name": "Pascal Siakam",
+          "number": 43
+        },
+        {
+          "name": "Gary Trent Jr.",
+          "number": 33
+        },
+        {
+          "name": "Jakob Poeltl",
+          "number": 19
+        },
+        {
+          "name": "RJ Barrett",
+          "number": 9
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "name": "Houston Rockets",
+      "country": "USA",
+      "city": "Houston",
+      "coach": "Ime Udoka",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/28/Houston_Rockets_logo.svg",
+      "players": [
+        {
+          "name": "Jalen Green",
+          "number": 4
+        },
+        {
+          "name": "Fred VanVleet",
+          "number": 5
+        },
+        {
+          "name": "Alperen Sengun",
+          "number": 28
+        },
+        {
+          "name": "Dillon Brooks",
+          "number": 9
+        },
+        {
+          "name": "Jabari Smith Jr.",
+          "number": 10
+        }
+      ]
+    },
+    {
+      "id": "T16",
+      "name": "San Antonio Spurs",
+      "country": "USA",
+      "city": "San Antonio",
+      "coach": "Gregg Popovich",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/a/a2/San_Antonio_Spurs.svg",
+      "players": [
+        {
+          "name": "Victor Wembanyama",
+          "number": 1
+        },
+        {
+          "name": "Keldon Johnson",
+          "number": 3
+        },
+        {
+          "name": "Devin Vassell",
+          "number": 24
+        },
+        {
+          "name": "Tre Jones",
+          "number": 33
+        },
+        {
+          "name": "Jeremy Sochan",
+          "number": 10
+        }
+      ]
+    },
+    {
+      "id": "T17",
+      "name": "Cleveland Cavaliers",
+      "country": "USA",
+      "city": "Cleveland",
+      "coach": "JB Bickerstaff",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/4/4b/Cleveland_Cavaliers_logo.svg",
+      "players": [
+        {
+          "name": "Donovan Mitchell",
+          "number": 45
+        },
+        {
+          "name": "Darius Garland",
+          "number": 10
+        },
+        {
+          "name": "Evan Mobley",
+          "number": 4
+        },
+        {
+          "name": "Jarrett Allen",
+          "number": 31
+        },
+        {
+          "name": "Caris LeVert",
+          "number": 3
+        }
+      ]
+    },
+    {
+      "id": "T18",
+      "name": "Atlanta Hawks",
+      "country": "USA",
+      "city": "Atlanta",
+      "coach": "Quin Snyder",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/24/Atlanta_Hawks_logo.svg",
+      "players": [
+        {
+          "name": "Trae Young",
+          "number": 11
+        },
+        {
+          "name": "Dejounte Murray",
+          "number": 5
+        },
+        {
+          "name": "Clint Capela",
+          "number": 15
+        },
+        {
+          "name": "Bogdan Bogdanovic",
+          "number": 13
+        },
+        {
+          "name": "Jalen Johnson",
+          "number": 1
+        }
+      ]
+    },
+    {
+      "id": "T19",
+      "name": "Utah Jazz",
+      "country": "USA",
+      "city": "Salt Lake City",
+      "coach": "Will Hardy",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/5/52/Utah_Jazz_logo_2022.svg",
+      "players": [
+        {
+          "name": "Lauri Markkanen",
+          "number": 23
+        },
+        {
+          "name": "Jordan Clarkson",
+          "number": 454
+        },
+        {
+          "name": "Walker Kessler",
+          "number": 24
+        },
+        {
+          "name": "Collin Sexton",
+          "number": 2
+        },
+        {
+          "name": "John Collins",
+          "number": 20
+        }
+      ]
+    },
+    {
+      "id": "T20",
+      "name": "Portland Trail Blazers",
+      "country": "USA",
+      "city": "Portland",
+      "coach": "Chauncey Billups",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/21/Portland_Trail_Blazers_logo.svg",
+      "players": [
+        {
+          "name": "Damian Lillard",
+          "number": 0
+        },
+        {
+          "name": "Anfernee Simons",
+          "number": 1
+        },
+        {
+          "name": "Jerami Grant",
+          "number": 9
+        },
+        {
+          "name": "Deandre Ayton",
+          "number": 2
+        },
+        {
+          "name": "Shaedon Sharpe",
+          "number": 17
+        }
+      ]
+    },
+    {
+      "id": "T21",
+      "name": "Memphis Grizzlies",
+      "country": "USA",
+      "city": "Memphis",
+      "coach": "Taylor Jenkins",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/f/f1/Memphis_Grizzlies_logo.svg",
+      "players": [
+        {
+          "name": "Ja Morant",
+          "number": 12
+        },
+        {
+          "name": "Jaren Jackson Jr.",
+          "number": 13
+        },
+        {
+          "name": "Desmond Bane",
+          "number": 22
+        },
+        {
+          "name": "Steven Adams",
+          "number": 4
+        },
+        {
+          "name": "Tyus Jones",
+          "number": 21
+        }
+      ]
+    },
+    {
+      "id": "T22",
+      "name": "Indiana Pacers",
+      "country": "USA",
+      "city": "Indianapolis",
+      "coach": "Rick Carlisle",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/1b/Indiana_Pacers.svg",
+      "players": [
+        {
+          "name": "Myles Turner",
+          "number": 33
+        },
+        {
+          "name": "Tyrese Haliburton",
+          "number": 0
+        },
+        {
+          "name": "Buddy Hield",
+          "number": 24
+        },
+        {
+          "name": "T.J. Warren",
+          "number": 1
+        },
+        {
+          "name": "Bennedict Mathurin",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": "T23",
+      "name": "Orlando Magic",
+      "country": "USA",
+      "city": "Orlando",
+      "coach": "Jamahl Mosley",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/1/10/Orlando_Magic_logo.svg",
+      "players": [
+        {
+          "name": "Paolo Banchero",
+          "number": 5
+        },
+        {
+          "name": "Franz Wagner",
+          "number": 8
+        },
+        {
+          "name": "Jalen Suggs",
+          "number": 4
+        },
+        {
+          "name": "Cole Anthony",
+          "number": 50
+        },
+        {
+          "name": "Wendell Carter Jr.",
+          "number": 34
+        }
+      ]
+    },
+    {
+      "id": "T24",
+      "name": "Oklahoma City Thunder",
+      "country": "USA",
+      "city": "Oklahoma City",
+      "coach": "Mark Daigneault",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/2/21/Oklahoma_City_Thunder.svg",
+      "players": [
+        {
+          "name": "Shai Gilgeous-Alexander",
+          "number": 2
+        },
+        {
+          "name": "Luguentz Dort",
+          "number": 5
+        },
+        {
+          "name": "Josh Giddey",
+          "number": 3
+        },
+        {
+          "name": "Jalen Williams",
+          "number": 8
+        },
+        {
+          "name": "Aaron Wiggins",
+          "number": 44
+        }
+      ]
+    },
+    {
+      "id": "T25",
+      "name": "Sacramento Kings",
+      "country": "USA",
+      "city": "Sacramento",
+      "coach": "Mike Brown",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/c7/SacramentoKings.svg",
+      "players": [
+        {
+          "name": "De’Aaron Fox",
+          "number": 5
+        },
+        {
+          "name": "Domantas Sabonis",
+          "number": 10
+        },
+        {
+          "name": "Harrison Barnes",
+          "number": 40
+        },
+        {
+          "name": "Kevin Huerter",
+          "number": 3
+        },
+        {
+          "name": "Richaun Holmes",
+          "number": 22
+        }
+      ]
+    },
+    {
+      "id": "T26",
+      "name": "New Orleans Pelicans",
+      "country": "USA",
+      "city": "New Orleans",
+      "coach": "Willie Green",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/0d/New_Orleans_Pelicans_logo.svg",
+      "players": [
+        {
+          "name": "Zion Williamson",
+          "number": 1
+        },
+        {
+          "name": "Brandon Ingram",
+          "number": 14
+        },
+        {
+          "name": "CJ McCollum",
+          "number": 3
+        },
+        {
+          "name": "Herb Jones",
+          "number": 7
+        },
+        {
+          "name": "Jonas Valanciunas",
+          "number": 17
+        }
+      ]
+    },
+    {
+      "id": "T27",
+      "name": "Minnesota Timberwolves",
+      "country": "USA",
+      "city": "Minneapolis",
+      "coach": "Chris Finch",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/c2/Minnesota_Timberwolves_logo.svg",
+      "players": [
+        {
+          "name": "Karl-Anthony Towns",
+          "number": 32
+        },
+        {
+          "name": "Anthony Edwards",
+          "number": 5
+        },
+        {
+          "name": "Rudy Gobert",
+          "number": 27
+        },
+        {
+          "name": "D’Angelo Russell",
+          "number": 0
+        },
+        {
+          "name": "Jaden McDaniels",
+          "number": 3
+        }
+      ]
+    },
+    {
+      "id": "T28",
+      "name": "Charlotte Hornets",
+      "country": "USA",
+      "city": "Charlotte",
+      "coach": "James Borrego",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/c4/Charlotte_Hornets_logo.svg",
+      "players": [
+        {
+          "name": "LaMelo Ball",
+          "number": 1
+        },
+        {
+          "name": "Terry Rozier",
+          "number": 3
+        },
+        {
+          "name": "Gordon Hayward",
+          "number": 20
+        },
+        {
+          "name": "Miles Bridges",
+          "number": 0
+        },
+        {
+          "name": "P.J. Washington",
+          "number": 25
+        }
+      ]
+    },
+    {
+      "id": "T29",
+      "name": "Washington Wizards",
+      "country": "USA",
+      "city": "Washington D.C.",
+      "coach": "Wes Unseld Jr.",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/0/02/Washington_Wizards_logo.svg",
+      "players": [
+        {
+          "name": "Bradley Beal",
+          "number": 3
+        },
+        {
+          "name": "Kristaps Porzingis",
+          "number": 6
+        },
+        {
+          "name": "Kyle Kuzma",
+          "number": 33
+        },
+        {
+          "name": "Kristian Wood",
+          "number": 0
+        },
+        {
+          "name": "Monte Morris",
+          "number": 11
+        }
+      ]
+    },
+    {
+      "id": "T30",
+      "name": "Detroit Pistons",
+      "country": "USA",
+      "city": "Detroit",
+      "coach": "Monty Williams",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/7/7c/Detroit_Pistons_logo.svg",
+      "players": [
+        {
+          "name": "Cade Cunningham",
+          "number": 2
+        },
+        {
+          "name": "Jaden Ivey",
+          "number": 5
+        },
+        {
+          "name": "Jalen Duren",
+          "number": 15
+        },
+        {
+          "name": "Jalen Williams",
+          "number": 0
+        },
+        {
+          "name": "Josh Jackson",
+          "number": 20
+        }
+      ]
+    },
+    {
+      "id": "T31",
+      "name": "Sacramento Kings II",
+      "country": "USA",
+      "city": "Sacramento",
+      "coach": "Mike Brown",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/c/c7/SacramentoKings.svg",
+      "players": [
+        {
+          "name": "Player A",
+          "number": 1
+        },
+        {
+          "name": "Player B",
+          "number": 2
+        },
+        {
+          "name": "Player C",
+          "number": 3
+        },
+        {
+          "name": "Player D",
+          "number": 4
+        },
+        {
+          "name": "Player E",
+          "number": 5
+        }
+      ]
+    },
+    {
+      "id": "T32",
+      "name": "Los Angeles Sparks",
+      "country": "USA",
+      "city": "Los Angeles",
+      "coach": "Coach X",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/3/3c/Los_Angeles_Lakers_logo.svg",
+      "players": [
+        {
+          "name": "Player F",
+          "number": 6
+        },
+        {
+          "name": "Player G",
+          "number": 7
+        },
+        {
+          "name": "Player H",
+          "number": 8
+        },
+        {
+          "name": "Player I",
+          "number": 9
+        },
+        {
+          "name": "Player J",
+          "number": 10
+        }
+      ]
+    },
+    {
+      "id": "T33",
+      "name": "Team Alpha",
+      "country": "USA",
+      "city": "City A",
+      "coach": "Coach Alpha",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Team_Logo.svg",
+      "players": [
+        {
+          "name": "A1",
+          "number": 11
+        },
+        {
+          "name": "A2",
+          "number": 12
+        },
+        {
+          "name": "A3",
+          "number": 13
+        },
+        {
+          "name": "A4",
+          "number": 14
+        },
+        {
+          "name": "A5",
+          "number": 15
+        }
+      ]
+    },
+    {
+      "id": "T34",
+      "name": "Team Beta",
+      "country": "USA",
+      "city": "City B",
+      "coach": "Coach Beta",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Team_Logo.svg",
+      "players": [
+        {
+          "name": "B1",
+          "number": 16
+        },
+        {
+          "name": "B2",
+          "number": 17
+        },
+        {
+          "name": "B3",
+          "number": 18
+        },
+        {
+          "name": "B4",
+          "number": 19
+        },
+        {
+          "name": "B5",
+          "number": 20
+        }
+      ]
+    },
+    {
+      "id": "T35",
+      "name": "Team Gamma",
+      "country": "USA",
+      "city": "City C",
+      "coach": "Coach Gamma",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Team_Logo.svg",
+      "players": [
+        {
+          "name": "C1",
+          "number": 21
+        },
+        {
+          "name": "C2",
+          "number": 22
+        },
+        {
+          "name": "C3",
+          "number": 23
+        },
+        {
+          "name": "C4",
+          "number": 24
+        },
+        {
+          "name": "C5",
+          "number": 25
+        }
+      ]
+    },
+    {
+      "id": "T36",
+      "name": "Team Delta",
+      "country": "USA",
+      "city": "City D",
+      "coach": "Coach Delta",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Team_Logo.svg",
+      "players": [
+        {
+          "name": "D1",
+          "number": 26
+        },
+        {
+          "name": "D2",
+          "number": 27
+        },
+        {
+          "name": "D3",
+          "number": 28
+        },
+        {
+          "name": "D4",
+          "number": 29
+        },
+        {
+          "name": "D5",
+          "number": 30
+        }
+      ]
+    },
+    {
+      "id": "T37",
+      "name": "Team Epsilon",
+      "country": "USA",
+      "city": "City E",
+      "coach": "Coach Epsilon",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Team_Logo.svg",
+      "players": [
+        {
+          "name": "E1",
+          "number": 31
+        },
+        {
+          "name": "E2",
+          "number": 32
+        },
+        {
+          "name": "E3",
+          "number": 33
+        },
+        {
+          "name": "E4",
+          "number": 34
+        },
+        {
+          "name": "E5",
+          "number": 35
+        }
+      ]
+    },
+    {
+      "id": "T38",
+      "name": "Team Zeta",
+      "country": "USA",
+      "city": "City F",
+      "coach": "Coach Zeta",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Team_Logo.svg",
+      "players": [
+        {
+          "name": "F1",
+          "number": 36
+        },
+        {
+          "name": "F2",
+          "number": 37
+        },
+        {
+          "name": "F3",
+          "number": 38
+        },
+        {
+          "name": "F4",
+          "number": 39
+        },
+        {
+          "name": "F5",
+          "number": 40
+        }
+      ]
+    },
+    {
+      "id": "T39",
+      "name": "Team Eta",
+      "country": "USA",
+      "city": "City G",
+      "coach": "Coach Eta",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/20/Team_Logo.svg",
+      "players": [
+        {
+          "name": "G1",
+          "number": 41
+        },
+        {
+          "name": "G2",
+          "number": 42
+        },
+        {
+          "name": "G3",
+          "number": 43
+        },
+        {
+          "name": "G4",
+          "number": 44
+        },
+        {
+          "name": "G5",
+          "number": 45
+        }
+      ]
+    },
+    {
+      "id": "T40",
+      "name": "Team Theta",
+      "country": "USA",
+      "city": "City H",
+      "coach": "Coach Theta",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/1/21/Team_Logo.svg",
+      "players": [
+        {
+          "name": "H1",
+          "number": 46
+        },
+        {
+          "name": "H2",
+          "number": 47
+        },
+        {
+          "name": "H3",
+          "number": 48
+        },
+        {
+          "name": "H4",
+          "number": 49
+        },
+        {
+          "name": "H5",
+          "number": 50
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "153c",
+      "username": "ErfanShafaat",
+      "phone": "09121111111",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "2c38",
+      "username": "RezaAmiri",
+      "phone": "09122222222",
+      "password": "123456",
+      "role": "user",
+      "avatar": ""
+    }
+  ]
+}

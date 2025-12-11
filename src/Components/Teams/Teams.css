@@ -1,0 +1,157 @@
+/* Teams.css */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1f2937;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 250px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+}
+
+.team-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.team-info {
+  text-align: center;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.team-coach,
+.team-location {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.team-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f97316;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.team-btn:hover {
+  background: #fb923c;
+}
+/* Teams.css */
+
+/* کانتینر کلی تیم‌ها */
+.teams-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  justify-items: center;
+  background: #0f172a; /* پس‌زمینه تیره */
+}
+
+/* کارت هر تیم */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  text-align: center;
+}
+
+/* انیمیشن hover */
+.team-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+/* لوگو تیم */
+.team-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: rgba(255,255,255,0.1);
+}
+
+/* اطلاعات تیم */
+.team-info .team-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.team-info .team-coach,
+.team-info .team-location {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: #e0e7ff;
+}
+
+/* دکمه اطلاعات بیشتر */
+.team-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background: #f97316;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.team-btn:hover {
+  background: #fb923c;
+  transform: scale(1.05);
+}
+
+/* راست‌چین برای زبان فارسی */
+.team-card[dir="rtl"] {
+  text-align: right;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .teams-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  .team-card {
+    max-width: 220px;
+    padding: 1rem;
+  }
+  .team-logo {
+    width: 100px;
+    height: 100px;
+  }
+}

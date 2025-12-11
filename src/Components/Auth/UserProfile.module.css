@@ -1,0 +1,108 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  direction: rtl;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 3px solid #f57c00;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.role {
+  display: inline-block;
+  background: #f57c00;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.label {
+  font-weight: 500;
+  color: #555;
+}
+
+.value {
+  font-weight: 600;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.editBtn, .logoutBtn {
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.editBtn {
+  background: #f57c00;
+  color: #fff;
+}
+
+.editBtn:hover {
+  background: #ff9800;
+  transform: scale(1.05);
+}
+
+.logoutBtn {
+  background: #eee;
+  color: #333;
+}
+
+.logoutBtn:hover {
+  background: #ddd;
+  transform: scale(1.05);
+}

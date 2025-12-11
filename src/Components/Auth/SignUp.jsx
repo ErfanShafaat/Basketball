@@ -1,0 +1,168 @@
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./SignUp.module.css";
+import { postData } from "../../Hooks/getData";
+
+export default function SignUp() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: "",
+    phone: "",
+    code: "",
+    password: "",
+    confirmPassword: ""
+  });
+  const [otp, setOtp] = useState(""); // ذخیره OTP
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // تغییرات اینپوت‌ها
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // تولید OTP و نمایش ۴ رقم اول
+  const generateOTP = () => {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    const generatedOtp = array[0].toString().slice(0, 4).padStart(4, "0");
+    console.log("کد OTP:", generatedOtp);
+    setOtp(generatedOtp); 
+  };
+
+  // ارسال فرم
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    // اعتبارسنجی ساده
+    if (!formData.username || !formData.phone || !formData.password || !formData.confirmPassword || !formData.code) {
+      setError("لطفاً تمام فیلدها را پر کنید");
+      return;
+    }
+
+    // بررسی مطابقت رمز عبور
+    if (formData.password !== formData.confirmPassword) {
+      setError("رمز عبور و تکرار آن مطابقت ندارند");
+      return;
+    }
+
+    // بررسی مطابقت کد OTP
+    if (formData.code !== otp) {
+      setError("کد OTP نادرست است");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      
+      await postData("users", {
+        username: formData.username,
+        phone: formData.phone,
+        password: formData.password,
+        role: "user"
+      });
+
+    
+      navigate("/Login");
+    } catch (err) {
+      setError("مشکلی در ثبت‌نام پیش آمد. دوباره تلاش کنید.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>ثبت نام</h2>
+
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.inputGroup}>
+            <label>نام کاربری</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="نام کاربری..."
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label>شماره موبایل</label>
+            <div className={styles.phoneInputWrapper}>
+              <input
+                type="text"
+                name="phone"
+                placeholder="مثال: 09123456789"
+                className={styles.phoneInput}
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              <button
+                type="button"
+                className={styles.sendCodeInside}
+                onClick={generateOTP}
+              >
+                ارسال کد
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label>کد تأیید</label>
+            <input
+              type="text"
+              name="code"
+              placeholder="کد پیامک شده..."
+              value={formData.code}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label>رمز عبور</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="رمز عبور..."
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className={styles.inputGroup}>
+            <label>تکرار رمز عبور</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="تکرار رمز عبور..."
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
+          </div>
+
+          {error && <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
+
+          <button type="submit" className={styles.loginBtn} disabled={loading}>
+            {loading ? "در حال ثبت‌نام..." : "ثبت نام"}
+          </button>
+        </form>
+
+        <div className={styles.footer}>
+          <p className={styles.signupText}>
+            قبلاً ثبت‌نام کرده‌اید؟{" "}
+            <Link to="/Login" className={styles.signupLink}>
+              وارد شوید
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

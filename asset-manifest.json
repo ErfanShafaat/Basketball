@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Basketball/static/css/main.2cdbc832.css",
-    "main.js": "/Basketball/static/js/main.f2606c9b.js",
+    "main.js": "/Basketball/static/js/main.58d3f474.js",
     "static/media/your-banner.gif": "/Basketball/static/media/your-banner.a82fe8ab0316dfa71b1a.gif",
     "static/media/fa-solid-900.woff2": "/Basketball/static/media/fa-solid-900.8ae0d37556ff1e685de2.woff2",
     "static/media/fa-brands-400.woff2": "/Basketball/static/media/fa-brands-400.1c5c7716b05754cb4eab.woff2",
@@ -9,10 +9,10 @@
     "static/media/fa-v4compatibility.woff2": "/Basketball/static/media/fa-v4compatibility.e4340c52a50e727c6afa.woff2",
     "index.html": "/Basketball/index.html",
     "main.2cdbc832.css.map": "/Basketball/static/css/main.2cdbc832.css.map",
-    "main.f2606c9b.js.map": "/Basketball/static/js/main.f2606c9b.js.map"
+    "main.58d3f474.js.map": "/Basketball/static/js/main.58d3f474.js.map"
   },
   "entrypoints": [
     "static/css/main.2cdbc832.css",
-    "static/js/main.f2606c9b.js"
+    "static/js/main.58d3f474.js"
   ]
 }

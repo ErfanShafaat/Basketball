@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import Swal from "sweetalert2";
 import "animate.css";
 import Cookies from "js-cookie";
+
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../FireBase/config";
 
 import NotFound from "../NotFound/NotFound";
 import Loading from "../Loading/Loading";
@@ -15,6 +17,7 @@ import "./TeamDetails.css";
 
 const TeamDetails = () => {
   const { id } = useParams();
+
   const [team, setTeam] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,29 +31,39 @@ const TeamDetails = () => {
   const [editCountry, setEditCountry] = useState("");
   const [editLogo, setEditLogo] = useState("");
 
-  const [isAdmin, setIsAdmin] = useState(false); // نقش کاربر
+  const [isAdmin, setIsAdmin] = useState(false);
 
-  // بررسی نقش کاربر
+  // نقش کاربر از کوکی
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
       try {
         const user = JSON.parse(userCookie);
-        if (user.role === "admin") {
-          setIsAdmin(true);
-        }
+        if (user.role === "admin") setIsAdmin(true);
       } catch (err) {
-        console.error("خطا در خواندن کوکی:", err);
+        console.error("Cookie error:", err);
       }
     }
   }, []);
 
+  // 🔥 گرفتن Team از Firestore
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/teams/${id}`);
-        setTeam(response.data);
+        const teamRef = doc(db, "Teams", id);
+        const teamSnap = await getDoc(teamRef);
+
+        if (!teamSnap.exists()) {
+          setError("Team not found!");
+          return;
+        }
+
+        setTeam({
+          id: teamSnap.id,
+          ...teamSnap.data(),
+        });
       } catch (err) {
+        console.error(err);
         setError("Team not found!");
       } finally {
         setLoading(false);
@@ -73,9 +86,9 @@ const TeamDetails = () => {
     setShowModal(true);
   };
 
+  // ✏️ ویرایش
   const handleSave = async () => {
     const updatedTeam = {
-      ...team,
       name: editName,
       coach: editCoach,
       city: editCity,
@@ -84,8 +97,8 @@ const TeamDetails = () => {
     };
 
     try {
-      await putData("teams", team.id, updatedTeam);
-      setTeam(updatedTeam);
+      await putData("Teams", team.id, updatedTeam);
+      setTeam({ ...team, ...updatedTeam });
       setShowModal(false);
 
       Swal.fire({
@@ -93,19 +106,13 @@ const TeamDetails = () => {
         text: "اطلاعات تیم بروزرسانی شد.",
         icon: "success",
         confirmButtonText: "باشه",
-        showClass: { popup: "animate__animated animate__zoomIn" },
-        hideClass: { popup: "animate__animated animate__fadeOut" },
       });
-    } catch (error) {
-      Swal.fire({
-        title: "خطا!",
-        text: "ویرایش انجام نشد",
-        icon: "error",
-        showClass: { popup: "animate__animated animate__shakeX" },
-      });
+    } catch {
+      Swal.fire("خطا!", "ویرایش انجام نشد", "error");
     }
   };
 
+  // 🗑 حذف
   const handleDelete = () => {
     Swal.fire({
       title: "حذف تیم",
@@ -116,36 +123,22 @@ const TeamDetails = () => {
       cancelButtonText: "لغو",
       confirmButtonColor: "#d33",
       cancelButtonColor: "#3085d6",
-      showClass: { popup: "animate__animated animate__fadeInDown" },
-      hideClass: { popup: "animate__animated animate__fadeOutUp" },
-    }).then(async (result) => {
-      if (result.isConfirmed) {
+    }).then(async (res) => {
+      if (res.isConfirmed) {
         try {
           setFadeOut(true);
 
           setTimeout(async () => {
-            await deleteData("teams", team.id);
+            await deleteData("Teams", team.id);
 
-            Swal.fire({
-              title: "حذف شد!",
-              text: "تیم با موفقیت حذف شد.",
-              icon: "success",
-              confirmButtonText: "باشه",
-              showClass: { popup: "animate__animated animate__zoomIn" },
-              hideClass: { popup: "animate__animated animate__fadeOut" },
-            });
+            Swal.fire("حذف شد!", "تیم با موفقیت حذف شد.", "success");
 
             setTimeout(() => {
               window.location.href = "/teams";
             }, 600);
           }, 400);
-        } catch (error) {
-          Swal.fire({
-            title: "خطا!",
-            text: "مشکلی در حذف رخ داد.",
-            icon: "error",
-            showClass: { popup: "animate__animated animate__shakeX" },
-          });
+        } catch {
+          Swal.fire("خطا!", "مشکلی در حذف رخ داد.", "error");
         }
       }
     });
@@ -164,19 +157,16 @@ const TeamDetails = () => {
               مکان: {team.city}, {team.country}
             </p>
 
-            <div className="details-actions">
-              {isAdmin && (
-                <>
-                  <button className="edit-btn" onClick={openModal}>
-                    <i className="fas fa-edit"></i> ویرایش
-                  </button>
-
-                  <button className="delete-btn" onClick={handleDelete}>
-                    <i className="fas fa-trash"></i> حذف
-                  </button>
-                </>
-              )}
-            </div>
+            {isAdmin && (
+              <div className="details-actions">
+                <button className="edit-btn" onClick={openModal}>
+                  ✏️ ویرایش
+                </button>
+                <button className="delete-btn" onClick={handleDelete}>
+                  🗑 حذف
+                </button>
+              </div>
+            )}
 
             <Link to="/teams" className="back-btn">
               بازگشت
@@ -188,17 +178,8 @@ const TeamDetails = () => {
       <EditTeam
         show={showModal}
         onClose={() => setShowModal(false)}
-        name={editName}
-        coach={editCoach}
-        city={editCity}
-        country={editCountry}
-        logo={editLogo}
-        setName={setEditName}
-        setCoach={setEditCoach}
-        setCity={setEditCity}
-        setCountry={setEditCountry}
-        setLogo={setEditLogo}
-        onSave={handleSave}
+        teamId={team.id} // ← حتماً team.id معتبر باشد
+        initialData={team} // ← داده اولیه تیم
       />
     </>
   );

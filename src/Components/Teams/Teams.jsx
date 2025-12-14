@@ -9,41 +9,46 @@ const Teams = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // تابع fetch را با throttle محدود می‌کنیم
+ 
   const fetchTeams = useCallback(
     throttle(async () => {
       setLoading(true);
       try {
-        const data = await getData("teams");
+        const data = await getData("Teams"); 
         setTeams(data);
       } catch (err) {
-        console.error(err);
+        console.error("Failed to load teams:", err);
       } finally {
         setLoading(false);
       }
-    }, 2000), // حداکثر یک بار در 2 ثانیه اجرا شود
+    }, 2000),
     []
   );
 
   useEffect(() => {
     fetchTeams();
+
+    // پاکسازی throttle موقع unmount
+    return () => {
+      fetchTeams.cancel && fetchTeams.cancel();
+    };
   }, [fetchTeams]);
 
   if (loading) return <Loading />;
-  if (teams.length === 0) return <NotFound message="No teams available" />;
+  if (!teams.length) return <NotFound message="No teams available" />;
 
   return (
     <div className="teams-container">
       {teams.map((team) => (
         <Team
           key={team.id}
+          id={team.id}
           name={team.name}
           coach={team.coach}
           players={team.players}
           logo={team.logo}
           city={team.city}
           country={team.country}
-          id={team.id}
         />
       ))}
     </div>

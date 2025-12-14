@@ -4,8 +4,10 @@ import Cookies from "js-cookie";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "./Login.module.css";
-import { getData } from "../../Hooks/getData";
-import { toast, Toaster } from "react-hot-toast"; 
+import { toast, Toaster } from "react-hot-toast";
+
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../../FireBase/config";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -20,30 +22,47 @@ export default function Login() {
   const handleLogin = async (values) => {
     setError("");
     setLoading(true);
-    try {
-      const users = await getData("users");
 
-      const user = users.find(
-        (u) => u.username === values.username && u.password === values.password
+    try {
+      const q = query(
+        collection(db, "Users"),
+        where("username", "==", values.username),
+        where("password", "==", values.password)
       );
 
-      if (!user) {
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
         setError("نام کاربری یا رمز عبور اشتباه است");
-      } else {
-        Cookies.set("user", JSON.stringify(user), { expires: 7 });
-
-       
-        toast.success(`خوش آمدید ${user.username}!`, {
-          position: "top-right",
-          duration: 3000,
-        });
-
-        
-        setTimeout(() => {
-          navigate("/");
-          window.location.reload();
-        }, 1000);
+        return;
       }
+
+      const userDoc = querySnapshot.docs[0];
+      const userData = {
+        id: userDoc.id,
+        ...userDoc.data(),
+      };
+
+      // ذخیره در کوکی
+      Cookies.set(
+        "user",
+        JSON.stringify({
+          id: userData.id,
+          username: userData.username,
+          role: userData.role || "user",
+        }),
+        { expires: 7 }
+      );
+
+      toast.success(`خوش آمدید ${userData.username}!`, {
+        position: "top-right",
+        duration: 3000,
+      });
+
+      setTimeout(() => {
+        navigate("/");
+        window.location.reload();
+      }, 1000);
     } catch (err) {
       console.error(err);
       setError("مشکلی در ورود پیش آمد. دوباره تلاش کنید.");
@@ -54,7 +73,8 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
-      <Toaster /> {/* اضافه شده */}
+      <Toaster />
+
       <div className={styles.card}>
         <h2 className={styles.title}>ورود به حساب</h2>
 

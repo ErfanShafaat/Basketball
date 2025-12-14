@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./SignUp.module.css";
-import { postData } from "../../Hooks/getData";
+import { collection, addDoc, query, where, getDocs, serverTimestamp } from "firebase/firestore";
+import { db } from "../../FireBase/config";
+
 
 export default function SignUp() {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     phone: "",
     code: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
-  const [otp, setOtp] = useState(""); // ذخیره OTP
+
+  const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -20,61 +24,76 @@ export default function SignUp() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  // تولید OTP و نمایش ۴ رقم اول
+  // تولید OTP (سمت کلاینت – نمایشی)
   const generateOTP = () => {
     const array = new Uint32Array(1);
     window.crypto.getRandomValues(array);
     const generatedOtp = array[0].toString().slice(0, 4).padStart(4, "0");
     console.log("کد OTP:", generatedOtp);
-    setOtp(generatedOtp); 
+    setOtp(generatedOtp);
   };
 
   // ارسال فرم
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
 
-    // اعتبارسنجی ساده
-    if (!formData.username || !formData.phone || !formData.password || !formData.confirmPassword || !formData.code) {
-      setError("لطفاً تمام فیلدها را پر کنید");
-      return;
-    }
+  if (
+    !formData.username ||
+    !formData.phone ||
+    !formData.password ||
+    !formData.confirmPassword ||
+    !formData.code
+  ) {
+    setError("لطفاً تمام فیلدها را پر کنید");
+    return;
+  }
 
-    // بررسی مطابقت رمز عبور
-    if (formData.password !== formData.confirmPassword) {
-      setError("رمز عبور و تکرار آن مطابقت ندارند");
-      return;
-    }
+  if (formData.password !== formData.confirmPassword) {
+    setError("رمز عبور و تکرار آن مطابقت ندارند");
+    return;
+  }
 
-    // بررسی مطابقت کد OTP
-    if (formData.code !== otp) {
-      setError("کد OTP نادرست است");
-      return;
-    }
+  if (formData.code !== otp) {
+    setError("کد OTP نادرست است");
+    return;
+  }
 
-    setLoading(true);
-    try {
-      
-      await postData("users", {
-        username: formData.username,
-        phone: formData.phone,
-        password: formData.password,
-        role: "user"
-      });
+  setLoading(true);
+  try {
+    // توجه: اسم collection دقیقا همان باشد که در Firebase دارید
+    const usersRef = collection(db, "Users"); // small "u" اگر collection شما همین باشد
+    const q = query(usersRef, where("username", "==", formData.username));
+    const querySnapshot = await getDocs(q);
 
-    
-      navigate("/Login");
-    } catch (err) {
-      setError("مشکلی در ثبت‌نام پیش آمد. دوباره تلاش کنید.");
-      console.error(err);
-    } finally {
+    if (querySnapshot.docs.length > 0) {
+      // اگر username قبلاً وجود دارد
+      setError("این نام کاربری قبلاً ثبت شده است");
       setLoading(false);
+      return;
     }
-  };
+
+    // افزودن کاربر جدید
+    await addDoc(usersRef, {
+      username: formData.username,
+      phone: formData.phone,
+      password: formData.password, // ⚠️ هش کردن در پروژه واقعی الزامی
+      role: "user",
+      createdAt: serverTimestamp(),
+    });
+
+    navigate("/Login");
+  } catch (err) {
+    console.error(err);
+    setError("مشکلی در ثبت‌نام پیش آمد. دوباره تلاش کنید.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className={styles.container}>
@@ -147,7 +166,9 @@ export default function SignUp() {
             />
           </div>
 
-          {error && <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
+          {error && (
+            <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>
+          )}
 
           <button type="submit" className={styles.loginBtn} disabled={loading}>
             {loading ? "در حال ثبت‌نام..." : "ثبت نام"}

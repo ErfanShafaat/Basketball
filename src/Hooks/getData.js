@@ -1,18 +1,28 @@
-// api.js
-import axios from "axios";
+// api.firebase.js
+import {
+  collection,
+  getDocs,
+  addDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
+  getDoc
+} from "firebase/firestore";
 
-// پایه URL سرور json-server
-const BASE_URL = "http://localhost:3000";
+import { db } from "../FireBase/config";
 
 /**
- * GET: دریافت داده‌ها
- * @param {string} endpoint مسیر API مثل "players"
- * @returns داده‌های پاسخ
+ * GET: دریافت همه داده‌ها از یک collection
+ * @param {string} endpoint نام collection مثل "players"
+ * @returns آرایه داده‌ها با id
  */
 export const getData = async (endpoint) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${endpoint}`);
-    return response.data;
+    const querySnapshot = await getDocs(collection(db, endpoint));
+    return querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
   } catch (error) {
     console.error(`GET ${endpoint} error:`, error);
     throw error;
@@ -20,15 +30,33 @@ export const getData = async (endpoint) => {
 };
 
 /**
- * POST: ارسال داده جدید
- * @param {string} endpoint مسیر API
- * @param {object} data داده‌ای که باید اضافه شود
- * @returns داده اضافه شده
+ * GET by ID: دریافت یک آیتم
+ */
+export const getDataById = async (endpoint, id) => {
+  try {
+    const docRef = doc(db, endpoint, id);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      throw new Error("Document not found");
+    }
+
+    return { id: docSnap.id, ...docSnap.data() };
+  } catch (error) {
+    console.error(`GET ${endpoint}/${id} error:`, error);
+    throw error;
+  }
+};
+
+/**
+ * POST: اضافه کردن داده جدید
+ * @param {string} endpoint نام collection
+ * @param {object} data داده جدید
  */
 export const postData = async (endpoint, data) => {
   try {
-    const response = await axios.post(`${BASE_URL}/${endpoint}`, data);
-    return response.data;
+    const docRef = await addDoc(collection(db, endpoint), data);
+    return { id: docRef.id, ...data };
   } catch (error) {
     console.error(`POST ${endpoint} error:`, error);
     throw error;
@@ -37,15 +65,15 @@ export const postData = async (endpoint, data) => {
 
 /**
  * PUT: بروزرسانی داده موجود
- * @param {string} endpoint مسیر API
- * @param {number|string} id شناسه آیتم
- * @param {object} data داده‌های جدید برای بروزرسانی
- * @returns داده بروزرسانی شده
+ * @param {string} endpoint نام collection
+ * @param {string} id شناسه document
+ * @param {object} data داده‌های جدید
  */
 export const putData = async (endpoint, id, data) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${endpoint}/${id}`, data);
-    return response.data;
+    const docRef = doc(db, endpoint, id);
+    await updateDoc(docRef, data);
+    return { id, ...data };
   } catch (error) {
     console.error(`PUT ${endpoint}/${id} error:`, error);
     throw error;
@@ -54,14 +82,14 @@ export const putData = async (endpoint, id, data) => {
 
 /**
  * DELETE: حذف داده
- * @param {string} endpoint مسیر API
- * @param {number|string} id شناسه آیتم
- * @returns نتیجه حذف
+ * @param {string} endpoint نام collection
+ * @param {string} id شناسه document
  */
 export const deleteData = async (endpoint, id) => {
   try {
-    const response = await axios.delete(`${BASE_URL}/${endpoint}/${id}`);
-    return response.data;
+    const docRef = doc(db, endpoint, id);
+    await deleteDoc(docRef);
+    return { success: true, id };
   } catch (error) {
     console.error(`DELETE ${endpoint}/${id} error:`, error);
     throw error;

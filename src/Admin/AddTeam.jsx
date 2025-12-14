@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { postData } from "../Hooks/getData";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import './AddPlayer.css'
+
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../FireBase/config";
 
 export default function AddTeam() {
   const [name, setName] = useState("");
@@ -15,6 +17,7 @@ export default function AddTeam() {
 
   const navigate = useNavigate();
 
+  // بررسی نقش کاربر
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
@@ -28,32 +31,28 @@ export default function AddTeam() {
         setAccessDenied(true);
       }
     } else {
-      setAccessDenied(true); // اگر کوکی موجود نباشد، دسترسی رد شود
+      setAccessDenied(true);
     }
   }, []);
-
-  const generateId = () => {
-    return crypto.randomUUID
-      ? crypto.randomUUID()
-      : Math.floor(Math.random() * 1000000000).toString();
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!name || !coach || !city || !country || !logo) return;
+
     const newTeam = {
-      id: generateId(),
       name,
       coach,
       city,
       country,
       logo,
+      createdAt: new Date(),
     };
 
     try {
       setLoading(true);
 
-      await postData("teams", newTeam);
+      await addDoc(collection(db, "Teams"), newTeam);
 
       alert("تیم با موفقیت اضافه شد!");
 
@@ -77,7 +76,7 @@ export default function AddTeam() {
       <div className="add-team-container">
         <h2>دسترسی غیرمجاز</h2>
         <p>شما اجازه دسترسی به این صفحه را ندارید.</p>
-        <p>تنها ادمین ها اجازه کار با این صفحه رو دارند</p>
+        <p>تنها ادمین ها اجازه کار با این صفحه را دارند</p>
       </div>
     );
   }

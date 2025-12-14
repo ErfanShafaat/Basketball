@@ -2,6 +2,7 @@
   "name": "basketball",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ErfanShafaat.github.io/Basketball",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
@@ -16,8 +17,10 @@
     "animate.css": "^4.1.1",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
+    "firebase": "^12.6.0",
     "formik": "^2.4.9",
     "framer-motion": "^12.23.25",
+    "gh-pages": "^6.3.0",
     "js-cookie": "^3.0.5",
     "json-server": "^1.0.0-beta.3",
     "lodash": "^4.17.21",
@@ -32,12 +35,14 @@
     "web-vitals": "^2.1.4",
     "yup": "^1.7.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+},
   "proxy": "https://www.balldontlie.io",
   "eslintConfig": {
     "extends": [

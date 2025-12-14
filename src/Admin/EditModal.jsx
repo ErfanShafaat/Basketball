@@ -1,21 +1,26 @@
-// EditModal.js
+// EditPlayer.js
 import React from "react";
-
 
 const EditPlayer = ({
   show,
   onClose,
-  name,
-  team,
-  number,
-  image,
+  playerId,
+  initialData,
+  onSave, // این تابع در والد Firestore را آپدیت می‌کند
   setName,
   setTeam,
   setNumber,
   setImage,
-  onSave,
 }) => {
-  if (!show) return null;
+  if (!show || !initialData) return null;
+
+  const handleSave = () => {
+    if (!playerId) {
+      console.error("playerId is undefined!");
+      return;
+    }
+    onSave(playerId); // تابع save از والد فراخوانی می‌شود
+  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -29,36 +34,35 @@ const EditPlayer = ({
           <label>نام:</label>
           <input
             type="text"
-            value={name}
+            value={initialData.name}
             onChange={(e) => setName(e.target.value)}
           />
 
           <label>تیم:</label>
           <input
             type="text"
-            value={team}
+            value={initialData.team}
             onChange={(e) => setTeam(e.target.value)}
           />
 
           <label>شماره:</label>
           <input
             type="number"
-            value={number}
+            value={initialData.number}
             onChange={(e) => setNumber(e.target.value)}
           />
 
           <label>عکس:</label>
           <input
             type="text"
-            value={image}
+            value={initialData.image}
             onChange={(e) => setImage(e.target.value)}
           />
 
           <div className="modal-actions">
-            <button type="button" className="modal-save" onClick={onSave}>
+            <button type="button" className="modal-save" onClick={handleSave}>
               ذخیره
             </button>
-
             <button type="button" className="modal-cancel" onClick={onClose}>
               بستن
             </button>

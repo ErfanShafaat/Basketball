@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getData } from "../../Hooks/getData";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../../FireBase/config";
+
 import Player from "./Player";
 import Loading from "../Loading/Loading";
 import NotFound from "../NotFound/NotFound";
@@ -9,33 +11,38 @@ const Players = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchPlayers = async () => {
-      try {
-        const data = await getData("players");
-        setPlayers(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
+    const unsub = onSnapshot(
+      collection(db, "Players"),
+      (snapshot) => {
+        const playersData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPlayers(playersData);
+        setLoading(false);
+      },
+      (error) => {
+        console.error(error);
         setLoading(false);
       }
-    };
+    );
 
-    fetchPlayers();
+    return () => unsub();
   }, []);
 
   if (loading) return <Loading />;
-  if (players.length === 0) return <NotFound message="No players available" />;
+  if (!players.length) return <NotFound message="No players available" />;
 
   return (
     <div className="players-container">
       {players.map((player) => (
         <Player
           key={player.id}
+          id={player.id}
           name={player.name}
           team={player.team}
           number={player.number}
           image={player.image}
-          id={player.id}
         />
       ))}
     </div>

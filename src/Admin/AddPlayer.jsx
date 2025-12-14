@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./AddPlayer.css";
-import { postData } from "../Hooks/getData";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../FireBase/config";
 
 export default function AddPlayer() {
   const [name, setName] = useState("");
@@ -34,36 +36,27 @@ export default function AddPlayer() {
     }
   }, []);
 
-  const generateId = () => {
-    return crypto.randomUUID
-      ? crypto.randomUUID()
-      : Math.floor(Math.random() * 1000000000).toString();
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!name || !team || !number || !image) return;
+
     const newPlayer = {
-      id: generateId(),
       name,
       team,
       number: Number(number),
       image,
+      createdAt: new Date(),
     };
 
     try {
       setLoading(true);
 
-      await postData("players", newPlayer);
+      await addDoc(collection(db, "Players"), newPlayer);
 
-      // نمایش پیام موفقیت با Toastify
       toast.success(`بازیکن ${name} با موفقیت اضافه شد!`, {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
       });
 
       // پاک کردن فرم
@@ -71,7 +64,6 @@ export default function AddPlayer() {
       setTeam("");
       setNumber("");
       setImage("");
-
     } catch (error) {
       toast.error("مشکلی پیش آمد! لطفاً دوباره تلاش کنید.", {
         position: "top-right",
@@ -138,7 +130,6 @@ export default function AddPlayer() {
         </button>
       </form>
 
-      {/* ToastContainer را در روت کامپوننت اضافه کنید */}
       <ToastContainer />
     </div>
   );

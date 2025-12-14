@@ -65,7 +65,8 @@
   gap: 2rem;
   padding: 2rem;
   justify-items: center;
-  background: #0f172a; /* پس‌زمینه تیره */
+  background: #0f172a; 
+  min-height:70vh;
 }
 
 /* کارت هر تیم */

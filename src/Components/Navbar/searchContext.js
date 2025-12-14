@@ -2,6 +2,9 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useDebounce } from "../../Hooks/useDebounce";
 
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../FireBase/config";
+
 const SearchContext = createContext();
 
 export function SearchProvider({ children }) {
@@ -16,15 +19,18 @@ export function SearchProvider({ children }) {
 
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-  // بارگذاری بازیکنان
+  // 🔥 بارگذاری Players از Firestore
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const response = await fetch("http://localhost:3000/players");
-        const data = await response.json();
+        const snapshot = await getDocs(collection(db, "Players"));
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
         setPlayers(data);
       } catch (e) {
-        console.error("Failed to load players");
+        console.error("Failed to load players", e);
       }
     };
 
@@ -33,15 +39,18 @@ export function SearchProvider({ children }) {
     }
   }, [searchActive, players.length]);
 
-  // بارگذاری تیم‌ها
+  // 🔥 بارگذاری Teams از Firestore
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await fetch("http://localhost:3000/teams");
-        const data = await response.json();
+        const snapshot = await getDocs(collection(db, "Teams"));
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
         setTeams(data);
       } catch (e) {
-        console.error("Failed to load teams");
+        console.error("Failed to load teams", e);
       }
     };
 
@@ -50,17 +59,20 @@ export function SearchProvider({ children }) {
     }
   }, [searchActive, teams.length]);
 
-  // فیلتر کردن بازیکنان و تیم‌ها
+  // 🔎 فیلتر کردن بازیکنان و تیم‌ها (بدون تغییر)
   useEffect(() => {
     if (debouncedSearchTerm.trim() === "") {
       setFilteredPlayers([]);
       setFilteredTeams([]);
     } else {
+      const term = debouncedSearchTerm.toLowerCase();
+
       const filteredP = players.filter((player) =>
-        player.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+        player.name?.toLowerCase().includes(term)
       );
+
       const filteredT = teams.filter((team) =>
-        team.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+        team.name?.toLowerCase().includes(term)
       );
 
       setFilteredPlayers(filteredP);
@@ -69,6 +81,7 @@ export function SearchProvider({ children }) {
   }, [debouncedSearchTerm, players, teams]);
 
   const openSearch = () => setSearchActive(true);
+
   const closeSearch = () => {
     setSearchActive(false);
     setSearchTerm("");
@@ -85,8 +98,8 @@ export function SearchProvider({ children }) {
         searchTerm,
         setSearchTerm,
         filteredPlayers,
-        teams,
         filteredTeams,
+        teams,
       }}
     >
       {children}

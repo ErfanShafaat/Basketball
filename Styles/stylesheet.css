@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "Nazanin";
+  src: url("../Fonts/BNazanin.eot");
+  src: url("../Fonts/BNazanin.eot?#iefix") format("embedded-opentype"),
+    url("../Fonts/BNazanin.woff2") format("woff2"),
+    url("../Fonts/BNazanin.woff") format("woff"),
+    url("../Fonts/BNazanin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+body{
+    font-family: 'Nazanin';
+}
